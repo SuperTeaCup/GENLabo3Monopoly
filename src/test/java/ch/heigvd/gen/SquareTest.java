@@ -8,15 +8,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class SquareTest {
 
     static final String TESTNAME = "square x";
-    Square square;
+    static Square square;
 
     @BeforeAll
-    void newSquare(){
+    static void newSquare(){
         square=new Square(TESTNAME);
     }
 
     @Test
-    void nameTest(){
+    static void nameTest(){
         assertEquals(square.getName(),TESTNAME);
     }
 
