@@ -23,7 +23,7 @@ public class MonopolyGameTest {
     void newMonopolyGame(){
         playerNumber= rng.nextInt(6)+2;
         names=new String[playerNumber];
-        tooManynNames=new String[playerNumber+5];
+        tooManynNames=new String[playerNumber+7];
         notEnoughNames=new String[playerNumber % 2];
 
         for(int i=0;i<names.length;i++){
@@ -54,9 +54,11 @@ public class MonopolyGameTest {
     @Test
     void incorrectPlayerNumber(){
         mg=new MonopolyGame(tooManynNames);
+        mg.playGame();
         assertEquals(0,mg.getRoundCnt());
 
         mg=new MonopolyGame(notEnoughNames);
+        mg.playGame();
         assertEquals(0,mg.getRoundCnt());
 
     }
