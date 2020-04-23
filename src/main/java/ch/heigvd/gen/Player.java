@@ -73,10 +73,16 @@ public class Player {
 
     /**
      * Works with negative sum
+     * And there is no problem with negative valueit juste becomes 0
+     * couldn't implement losing and that was not asked
+     *
      *
      * @param sum can be negative
      */
     public void addCash(int sum) {
         this.cash += sum;
+        if(this.cash<0){
+            cash=0;
+        }
     }
 }
