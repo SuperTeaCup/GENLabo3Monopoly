@@ -3,9 +3,10 @@ package ch.heigvd.gen;
 public class Piece {
 
     private Square location;
+    private String name;
 
-    public Piece() {
-        //nothing
+    public Piece(String name) {
+        this.name=name;
     }
 
     public Square getLocation() {
@@ -16,4 +17,7 @@ public class Piece {
         this.location = location;
     }
 
+    public String getName() {
+        return name;
+    }
 }

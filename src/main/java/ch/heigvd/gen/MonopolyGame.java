@@ -1,7 +1,12 @@
 package ch.heigvd.gen;
 
+import java.util.Random;
+
 public class MonopolyGame {
 
+    final static String PIECESET[]={"The Boot","the Teacup","The Teapot","The De-a-coudre","The Dog","Barack Obama","The Epave","La quatrieme personne"};
+    static int index;
+    static Random rng;
     final static int NB_ROUND=20;
     private int roundCnt;
     private Cup cup;
@@ -10,13 +15,16 @@ public class MonopolyGame {
 
     public MonopolyGame(String[] playerNames){
 
+        rng=new Random();
+        index=rng.nextInt(8);
         this.roundCnt=0;
         this.cup=new Cup();
         this.board=new Board();
         this.player=new Player[playerNames.length];
         int i=0;
         for(String s:playerNames){
-            this.player[i++]=new Player(this.cup,s,this.board);
+            this.player[i++]=new Player(this.cup,s,this.board,PIECESET[index]);
+            this.index= (this.index + 1 ) % 8;
         }
     }
 
