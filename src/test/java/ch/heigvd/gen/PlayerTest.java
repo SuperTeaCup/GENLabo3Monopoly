@@ -21,15 +21,15 @@ public class PlayerTest {
 
     @BeforeAll
     static void newPlayer() {
-        pieceName="The TeaCup";
+        pieceName = "The TeaCup";
         name = "Jean-Test";
         board = new Board();
-        startingCash=1500;
-        jailPosition=10;
-        goToJailPosition=30;
-        cup=new Cup();
-        player = new Player(cup, name, board,pieceName);
-        immoovablePlayer = new Player(cup, name, board,pieceName);
+        startingCash = 1500;
+        jailPosition = 10;
+        goToJailPosition = 30;
+        cup = new Cup();
+        player = new Player(cup, name, board, pieceName);
+        immoovablePlayer = new Player(cup, name, board, pieceName);
     }
 
     @Test
@@ -43,7 +43,7 @@ public class PlayerTest {
 
         immoovablePlayer.move(4);
         immoovablePlayer.getPiece().getLocation().landedOn(immoovablePlayer);
-        assertNotEquals(immoovablePlayer.getNetWorth(),startingCash);
+        assertNotEquals(immoovablePlayer.getNetWorth(), startingCash);
 
         immoovablePlayer.addCash(-10000); // set back to 0
 
@@ -52,7 +52,7 @@ public class PlayerTest {
 
         immoovablePlayer.move(30);
         immoovablePlayer.getPiece().getLocation().landedOn(immoovablePlayer);
-        assertEquals(immoovablePlayer.getNetWorth(),200);
+        assertEquals(immoovablePlayer.getNetWorth(), 200);
 
     }
 
@@ -66,7 +66,7 @@ public class PlayerTest {
 
     @RepeatedTest(50)
     void turnTest() {
-        boolean getOutOfJailCard=false;
+        boolean getOutOfJailCard = false;
         int actualPosition = Board.indexFinder(player.getPiece().getLocation().getName(), board.getSquares());
 
 
@@ -75,12 +75,11 @@ public class PlayerTest {
         int newPosition = Board.indexFinder(player.getPiece().getLocation().getName(), board.getSquares());
 
 
-
         int totalMoved = Math.floorMod(newPosition - actualPosition, board.getSquares().length);
 
-        if(Math.floorMod(actualPosition+player.getTotal(),board.getSquares().length) == goToJailPosition){
-            assertEquals(newPosition,jailPosition);
-            getOutOfJailCard=true;
+        if (Math.floorMod(actualPosition + player.getTotal(), board.getSquares().length) == goToJailPosition) {
+            assertEquals(newPosition, jailPosition);
+            getOutOfJailCard = true;
 
         }
 

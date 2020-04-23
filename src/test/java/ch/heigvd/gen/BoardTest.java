@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BoardTest {
     static Board board;
@@ -48,10 +47,11 @@ public class BoardTest {
     }
 
     @Test
-    void failTest(){
-        try{
-            board.getSquare(board.getSquares()[1],1);
-        } catch (final IllegalArgumentException e){
+    void failTest() {
+        try {
+            board.getSquare(board.getSquares()[1], 1);
+            fail("did not fail!");
+        } catch (final IllegalArgumentException e) {
             assertTrue(true);
         }
     }

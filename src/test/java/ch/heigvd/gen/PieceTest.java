@@ -24,7 +24,7 @@ public class PieceTest {
     }
 
     @Test
-     void startPosition() {
+    void startPosition() {
         assertNull(immovablePiece.getLocation());
     }
 
