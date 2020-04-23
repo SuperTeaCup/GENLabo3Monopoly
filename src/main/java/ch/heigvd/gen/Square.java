@@ -14,7 +14,7 @@ public class Square {
 
     @Override
     public String toString() {
-        return super.toString()+" "+ this.name;
+        return this.name;
     }
 
 }

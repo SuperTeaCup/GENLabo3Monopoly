@@ -16,7 +16,7 @@ public class SquareTest {
     }
 
     @Test
-    static void nameTest() {
+     void nameTest() {
         assertEquals(square.getName(), TESTNAME);
     }
 

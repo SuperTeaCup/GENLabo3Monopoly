@@ -5,27 +5,28 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
 public class PieceTest {
 
     static String squareName = "squareTest";
     static Piece piece;
+    static Piece immovablePiece;
     static Square square;
-    static Square startSquare;
 
     @BeforeAll
     static void newPiece() { //it seems this was not the best name idea for the setting up method
         piece = new Piece();
+        immovablePiece = new Piece();
         square = new Square(squareName);
-        startSquare = new Square("Go");
     }
 
     @Test
-    static void startPosition() {
-        assertEquals(piece.getLocation(), startSquare);
+     void startPosition() {
+        assertEquals( null,immovablePiece.getLocation());
     }
 
     @Test
-    static void correctDeplacement() {
+    void correctDeplacement() {
         piece.setLocation(square);
         assertEquals(piece.getLocation(), square);
     }
