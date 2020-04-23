@@ -6,12 +6,12 @@ public class Player {
     private Board board;
     private Cup cup;
 
-    public Player(Cup cup, String name, Board board) {
+    public Player(Cup cup, String name, Board board, String pieceName) {
         this.board = board;
         this.cup = cup;
         this.name = name;
 
-        this.piece = new Piece();
+        this.piece = new Piece(pieceName);
         this.piece.setLocation(this.board.getSquares()[0]);
     }
 

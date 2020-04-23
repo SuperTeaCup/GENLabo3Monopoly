@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class PieceTest {
 
+    static String name;
     static String squareName = "squareTest";
     static Piece piece;
     static Piece immovablePiece;
@@ -16,8 +17,9 @@ public class PieceTest {
 
     @BeforeAll
     static void newPiece() { //it seems this was not the best name idea for the setting up method
-        piece = new Piece();
-        immovablePiece = new Piece();
+        name = "L'inverse d'une passoire";
+        piece = new Piece(name);
+        immovablePiece = new Piece(name);
         square = new Square(squareName);
     }
 

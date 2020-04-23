@@ -9,6 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PlayerTest {
 
+    static String pieceName;
     static Player player;
     static Player immoovablePlayer;
     static String name;
@@ -17,11 +18,12 @@ public class PlayerTest {
 
     @BeforeAll
     static void newPlayer() {
+        pieceName="The TeaCup";
         name = "Jean-Test";
         board = new Board();
         cup=new Cup();
-        player = new Player(cup, name, board);
-        immoovablePlayer = new Player(cup, name, board);
+        player = new Player(cup, name, board,pieceName);
+        immoovablePlayer = new Player(cup, name, board,pieceName);
     }
 
     @Test
