@@ -7,26 +7,26 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PieceTest {
 
-    static String squareName="squareTest";
+    static String squareName = "squareTest";
     static Piece piece;
     static Square square;
     static Square startSquare;
 
     @BeforeAll
-    static void newPiece(){ //it seems this was not the best name idea for the setting up method
+    static void newPiece() { //it seems this was not the best name idea for the setting up method
         piece = new Piece();
         square = new Square(squareName);
-        startSquare = new Square("GO");
+        startSquare = new Square("Go");
     }
 
     @Test
-    static void startPosition(){
-        assertEquals(piece.getLocation(),startSquare);
+    static void startPosition() {
+        assertEquals(piece.getLocation(), startSquare);
     }
 
     @Test
-    static void correctDeplacement(){
+    static void correctDeplacement() {
         piece.setLocation(square);
-        assertEquals(piece.getLocation(),square);
+        assertEquals(piece.getLocation(), square);
     }
 }
