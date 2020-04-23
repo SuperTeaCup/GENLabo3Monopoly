@@ -12,18 +12,16 @@ public class PlayerTest {
     static Player player;
     static Player immoovablePlayer;
     static String name;
-    static Die die[];
+    static Cup cup;
     static Board board;
 
     @BeforeAll
     static void newPlayer() {
         name = "Jean-Test";
         board = new Board();
-        die = new Die[2];
-        die[0] = new Die();
-        die[1] = new Die();
-        player = new Player(die, name, board);
-        immoovablePlayer = new Player(die, name, board);
+        cup=new Cup();
+        player = new Player(cup, name, board);
+        immoovablePlayer = new Player(cup, name, board);
     }
 
     @Test
@@ -52,17 +50,15 @@ public class PlayerTest {
     void turnTest() {
         int actualPosition = Board.indexFinder(player.getPiece().getLocation().getName(), board.getSquares());
 
-        System.out.println("act " + actualPosition);
 
         player.takeTurn();
 
         int newPosition = Board.indexFinder(player.getPiece().getLocation().getName(), board.getSquares());
 
-        System.out.println("new " + newPosition);
 
         int totalMoved = Math.floorMod(newPosition - actualPosition, board.getSquares().length);
 
-        System.out.println("tot " + totalMoved);
+
 
         assertTrue(2 <= totalMoved && 12 >= totalMoved);
     }

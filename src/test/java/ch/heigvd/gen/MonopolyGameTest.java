@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class MonopolyGameTest {
 
@@ -59,7 +60,7 @@ public class MonopolyGameTest {
 
         mg=new MonopolyGame(notEnoughNames);
         mg.playGame();
-        assertEquals(0,mg.getRoundCnt());
+        assertNotEquals(20,mg.getRoundCnt());
 
     }
 

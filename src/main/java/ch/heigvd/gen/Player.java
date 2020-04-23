@@ -4,11 +4,11 @@ public class Player {
     private String name;
     private Piece piece;
     private Board board;
-    private Die dice[]; //no cup in iter 1
+    private Cup cup;
 
-    public Player(Die[] die, String name, Board board) {
+    public Player(Cup cup, String name, Board board) {
         this.board = board;
-        this.dice = die;
+        this.cup = cup;
         this.name = name;
 
         this.piece = new Piece();
@@ -28,17 +28,11 @@ public class Player {
     }
 
     public void rollDie() {
-        for (Die d : dice) {
-            d.roll();
-        }
+        this.cup.roll();
     }
 
     public int getTotal() {
-        int total = 0;
-        for (Die d : dice) {
-            total += d.getFaceValue();
-        }
-        return total;
+        return cup.getTotal();
     }
 
     public void announceTotal(int total) {

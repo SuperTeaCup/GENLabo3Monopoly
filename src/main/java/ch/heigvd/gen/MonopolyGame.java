@@ -4,21 +4,19 @@ public class MonopolyGame {
 
     final static int NB_ROUND=20;
     private int roundCnt;
-    private Die dice[];
+    private Cup cup;
     private Board board;
     private Player player[];
 
     public MonopolyGame(String[] playerNames){
 
         this.roundCnt=0;
-        this.dice = new Die[2];
-        this.dice[0]=new Die();
-        this.dice[1]=new Die();
+        this.cup=new Cup();
         this.board=new Board();
         this.player=new Player[playerNames.length];
         int i=0;
         for(String s:playerNames){
-            this.player[i++]=new Player(this.dice,s,this.board);
+            this.player[i++]=new Player(this.cup,s,this.board);
         }
     }
 
