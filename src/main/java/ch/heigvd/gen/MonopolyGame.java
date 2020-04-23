@@ -15,7 +15,7 @@ public class MonopolyGame {
         this.dice[0]=new Die();
         this.dice[1]=new Die();
         this.board=new Board();
-        this.player=new Player[playerNames.length];//we assume nb player is always correct
+        this.player=new Player[playerNames.length];
         int i=0;
         for(String s:playerNames){
             this.player[i++]=new Player(this.dice,s,this.board);
@@ -23,6 +23,12 @@ public class MonopolyGame {
     }
 
     public void playGame(){
+
+        if(player.length <2 || player.length >8){
+            System.out.println("Too few or too many player, you need 2 to 8 player to play");
+            return;
+        }
+
         for(;roundCnt<NB_ROUND;roundCnt++){
             System.out.println("Round "+(roundCnt+1));
             this.playRound();

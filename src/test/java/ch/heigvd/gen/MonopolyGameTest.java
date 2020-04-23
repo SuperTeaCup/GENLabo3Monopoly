@@ -2,6 +2,7 @@ package ch.heigvd.gen;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
+import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 
@@ -14,16 +15,33 @@ public class MonopolyGameTest {
     static int c = 0;
     static String name = "lex";
     static String names[];
+    static String tooManynNames[];
+    static String notEnoughNames[];
     static MonopolyGame mg;
 
     @BeforeEach
     void newMonopolyGame(){
         playerNumber= rng.nextInt(6)+2;
         names=new String[playerNumber];
-        for(int i=0;i<playerNumber;i++){
+        tooManynNames=new String[playerNumber+5];
+        notEnoughNames=new String[playerNumber % 2];
+
+        for(int i=0;i<names.length;i++){
             names[i]= ((char) (c+65)) + name;
             c= (c+1) % 26;
         }
+
+        for(int i=0;i<tooManynNames.length;i++){
+            tooManynNames[i]= ((char) (c+65)) + name;
+            c= (c+1) % 26;
+        }
+
+        for(int i=0;i<notEnoughNames.length;i++){
+            notEnoughNames[i]= ((char) (c+65)) + name;
+            c= (c+1) % 26;
+        }
+
+
         mg = new MonopolyGame(names);
     }
 
@@ -31,6 +49,16 @@ public class MonopolyGameTest {
     void runGame(){
         mg.playGame();
         assertEquals(20,mg.getRoundCnt());
+    }
+
+    @Test
+    void incorrectPlayerNumber(){
+        mg=new MonopolyGame(tooManynNames);
+        assertEquals(0,mg.getRoundCnt());
+
+        mg=new MonopolyGame(notEnoughNames);
+        assertEquals(0,mg.getRoundCnt());
+
     }
 
 
