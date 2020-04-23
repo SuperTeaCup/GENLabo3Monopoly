@@ -20,7 +20,7 @@ public class PieceTest {
         name = "L'inverse d'une passoire";
         piece = new Piece(name);
         immovablePiece = new Piece(name);
-        square = new Square(squareName);
+        square = new RegularSquare(squareName);
     }
 
     @Test

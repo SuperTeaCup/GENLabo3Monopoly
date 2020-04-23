@@ -1,7 +1,7 @@
 package ch.heigvd.gen;
 
 public class Player {
-    final static int STARTING_CASH=1500;
+    final static int STARTING_CASH = 1500;
     private int cash;
     final private String name;
     final private Piece piece;
@@ -10,7 +10,7 @@ public class Player {
 
     public Player(Cup cup, String name, Board board, String pieceName) {
         this.piece = new Piece(pieceName);
-        this.cash=STARTING_CASH;
+        this.cash = STARTING_CASH;
         this.board = board;
         this.cup = cup;
         this.name = name;
@@ -27,7 +27,7 @@ public class Player {
 
         announceLanding();
 
-        //piece.getLocation().landedOn(this);
+        piece.getLocation().landedOn(this);
 
     }
 
@@ -41,6 +41,10 @@ public class Player {
 
     public void announceTotal(int total) {
         System.out.println(this.name + " has rolled " + total);
+    }
+
+    public void setLocation(Square square) {
+        this.piece.setLocation(square);
     }
 
     public void move(int total) {
@@ -59,19 +63,20 @@ public class Player {
         return name;
     }
 
-    public String getPieceName(){
+    public String getPieceName() {
         return this.piece.getName();
     }
 
-    public int getCash() {
+    public int getNetWorth() {
         return cash;
     }
 
     /**
      * Works with negative sum
+     *
      * @param sum can be negative
      */
-    public void addCash(int sum){
-        this.cash+=sum;
+    public void addCash(int sum) {
+        this.cash += sum;
     }
 }

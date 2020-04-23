@@ -12,7 +12,7 @@ public class SquareTest {
 
     @BeforeAll
     static void newSquare() {
-        square = new Square(TESTNAME);
+        square = new RegularSquare(TESTNAME);
     }
 
     @Test

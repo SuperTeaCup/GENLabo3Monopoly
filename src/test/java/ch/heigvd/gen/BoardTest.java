@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BoardTest {
     static Board board;
@@ -44,5 +45,14 @@ public class BoardTest {
     void loopTest() {
         Square end = board.getSquares()[38];
         assertEquals(board.getSquares()[0], board.getSquare(end, 2)); //to is the  minimum in monopoly
+    }
+
+    @Test
+    void failTest(){
+        try{
+            board.getSquare(board.getSquares()[1],1);
+        } catch (final IllegalArgumentException e){
+            assertTrue(true);
+        }
     }
 }
