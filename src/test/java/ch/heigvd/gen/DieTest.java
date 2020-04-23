@@ -11,18 +11,18 @@ public class DieTest {
     Die dice;
 
     @BeforeEach
-    void newDice(){
+    void newDice() {
         dice = new Die();
     }
 
     @Test
-    void noRollTest(){
-        assertEquals(dice.getFaceValue(),0);
+    void noRollTest() {
+        assertEquals(dice.getFaceValue(), 0);
     }
 
     @RepeatedTest(50)
-    void multiRollTest(){
+    void multiRollTest() {
         dice.roll();
-        assertTrue(dice.getFaceValue()<=6 && dice.getFaceValue() >= 1);
+        assertTrue(dice.getFaceValue() <= 6 && dice.getFaceValue() >= 1);
     }
 }
