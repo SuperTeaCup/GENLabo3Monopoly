@@ -24,7 +24,7 @@ public class MonopolyGame {
 
     public void playGame(){
 
-        if(player.length <2 || player.length >8){
+        if(!(player.length >=2 && player.length <=8 )){
             System.out.println("Too few or too many player, you need 2 to 8 player to play");
             return;
         }
