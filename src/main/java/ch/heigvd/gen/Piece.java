@@ -5,7 +5,7 @@ public class Piece {
     private Square location;
 
     public Piece() {
-        this.location = new Square("Go");
+        //nothing
     }
 
     public Square getLocation() {
@@ -15,4 +15,5 @@ public class Piece {
     public void setLocation(Square location) {
         this.location = location;
     }
+
 }
