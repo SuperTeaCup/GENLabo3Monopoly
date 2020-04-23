@@ -1,17 +1,19 @@
 package ch.heigvd.gen;
 
 public class Player {
-    private String name;
-    private Piece piece;
-    private Board board;
-    private Cup cup;
+    final static int STARTING_CASH = 1500;
+    private int cash;
+    final private String name;
+    final private Piece piece;
+    final private Board board;
+    final private Cup cup;
 
     public Player(Cup cup, String name, Board board, String pieceName) {
+        this.piece = new Piece(pieceName);
+        this.cash = STARTING_CASH;
         this.board = board;
         this.cup = cup;
         this.name = name;
-
-        this.piece = new Piece(pieceName);
         this.piece.setLocation(this.board.getSquares()[0]);
     }
 
@@ -25,6 +27,8 @@ public class Player {
 
         announceLanding();
 
+        piece.getLocation().landedOn(this);
+
     }
 
     public void rollDie() {
@@ -37,6 +41,10 @@ public class Player {
 
     public void announceTotal(int total) {
         System.out.println(this.name + " has rolled " + total);
+    }
+
+    public void setLocation(Square square) {
+        this.piece.setLocation(square);
     }
 
     public void move(int total) {
@@ -55,4 +63,26 @@ public class Player {
         return name;
     }
 
+    public String getPieceName() {
+        return this.piece.getName();
+    }
+
+    public int getNetWorth() {
+        return cash;
+    }
+
+    /**
+     * Works with negative sum
+     * And there is no problem with negative valueit juste becomes 0
+     * couldn't implement losing and that was not asked
+     *
+     *
+     * @param sum can be negative
+     */
+    public void addCash(int sum) {
+        this.cash += sum;
+        if(this.cash<0){
+            cash=0;
+        }
+    }
 }

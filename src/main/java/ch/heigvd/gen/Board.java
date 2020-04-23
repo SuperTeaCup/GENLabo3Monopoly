@@ -11,11 +11,14 @@ public class Board {
     public Board() {
         this.boardList = new ArrayList<Square>();
 
-        this.boardList.add(new Square("Go"));
+        this.boardList.add(new GoSquare());
 
         for (int i = 1; i < NB_SQUARE; i++) {
-            this.boardList.add(new Square("Square " + i));
+            this.boardList.add(new RegularSquare("Square " + i));
         }
+
+        boardList.set(4, new IncomeTaxSquare());
+        boardList.set(30, new GoToJailSquare(boardList.get(10)));
 
     }
 

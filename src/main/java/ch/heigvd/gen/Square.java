@@ -1,6 +1,6 @@
 package ch.heigvd.gen;
 
-public class Square {
+abstract class Square {
 
     private final String name;
 
@@ -12,9 +12,12 @@ public class Square {
         return name;
     }
 
+    public abstract void landedOn(Player player);
+
     @Override
     public String toString() {
         return this.name;
     }
+
 
 }

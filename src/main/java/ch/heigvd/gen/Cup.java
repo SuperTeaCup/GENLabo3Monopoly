@@ -3,12 +3,12 @@ package ch.heigvd.gen;
 public class Cup {
 
     private Die dice[]; //no cup in iter 1
-    private final int NB_DIE=2;
+    private final int NB_DIE = 2;
 
-    public Cup(){
-        this.dice=new Die[NB_DIE];
-        for(int i=0;i<NB_DIE;i++){
-            this.dice[i]=new Die();
+    public Cup() {
+        this.dice = new Die[NB_DIE];
+        for (int i = 0; i < NB_DIE; i++) {
+            this.dice[i] = new Die();
         }
     }
 

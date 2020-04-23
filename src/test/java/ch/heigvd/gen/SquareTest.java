@@ -12,11 +12,11 @@ public class SquareTest {
 
     @BeforeAll
     static void newSquare() {
-        square = new Square(TESTNAME);
+        square = new RegularSquare(TESTNAME);
     }
 
     @Test
-     void nameTest() {
+    void nameTest() {
         assertEquals(square.getName(), TESTNAME);
     }
 
