@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 
 public class PieceTest {
@@ -22,7 +23,7 @@ public class PieceTest {
 
     @Test
      void startPosition() {
-        assertEquals( null,immovablePiece.getLocation());
+        assertNull(immovablePiece.getLocation());
     }
 
     @Test
